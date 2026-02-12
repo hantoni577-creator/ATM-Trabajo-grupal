@@ -9,7 +9,11 @@ usuarios = {
 print("--- SISTEMA MULTI-USUARIO ---")
 
 # 1. BUSCAR USUARIO
+cuenta = input("Ingrese su número de cuenta (101, 102, 103): ")
 
+if cuenta in usuarios:
+    usuario_actual = usuarios[cuenta]
+    pin_ingresado = input(f"Hola {usuario_actual['nombre']}, ingresa tu PIN: ")
 
 # 2. VALIDACIÓN
 
