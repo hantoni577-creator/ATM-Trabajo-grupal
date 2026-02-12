@@ -15,21 +15,22 @@ if cuenta in usuarios:
     usuario_actual = usuarios[cuenta]
     pin_ingresado = input(f"Hola {usuario_actual['nombre']}, ingresa tu PIN: ")
 
-# 2. VALIDACIÓN
-
+    # 2. VALIDACIÓN
+    if pin_ingresado == usuario_actual['pin']:
+        print(f"Acceso correcto. Saldo disponible: ${usuario_actual['saldo']}")
         
-# 3. TRANSACCIÓN
-monto = int(input("¿Cuánto deseas retirar?: $"))
+        # 3. TRANSACCIÓN
+        monto = int(input("¿Cuánto deseas retirar?: $"))
         
-    if 0 < monto <= usuario_actual['saldo']:
+        if 0 < monto <= usuario_actual['saldo']:
             usuario_actual['saldo'] -= monto  # Se actualiza solo esa cuenta
             print(f"Retiro exitoso. Nuevo saldo de {usuario_actual['nombre']}: ${usuario_actual['saldo']}")
             print("[LOG]: Operación registrada con éxito.") [cite: 11]
-    else:
+        else:
             print("Error: Saldo insuficiente o monto inválido.")
     else:
-            print("Error: PIN incorrecto.")
-    else:
-            print("Error: La cuenta no existe.")
+        print("Error: PIN incorrecto.")
+else:
+    print("Error: La cuenta no existe.")
 
-            print("\nSesión finalizada.")
+print("\nSesión finalizada.")
