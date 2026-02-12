@@ -19,3 +19,17 @@ if cuenta in usuarios:
 
         
 # 3. TRANSACCIÓN
+monto = int(input("¿Cuánto deseas retirar?: $"))
+        
+    if 0 < monto <= usuario_actual['saldo']:
+            usuario_actual['saldo'] -= monto  # Se actualiza solo esa cuenta
+            print(f"Retiro exitoso. Nuevo saldo de {usuario_actual['nombre']}: ${usuario_actual['saldo']}")
+            print("[LOG]: Operación registrada con éxito.") [cite: 11]
+    else:
+            print("Error: Saldo insuficiente o monto inválido.")
+    else:
+            print("Error: PIN incorrecto.")
+    else:
+            print("Error: La cuenta no existe.")
+
+            print("\nSesión finalizada.")
